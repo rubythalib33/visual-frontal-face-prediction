@@ -32,7 +32,7 @@ counter = 0
 
 while True:
     _, frame_f = vid_f.read()
-    if counter % 200 == 0:
+    if counter % 100 == 0:
         _, bboxs = detector.findFaces(frame_f.copy())
 
     center = bboxs[0]["center"]
@@ -53,5 +53,5 @@ while True:
     cv2.imwrite(f'{output_f}{counter}.jpg',face_f)
     cv2.imwrite(f'{output_s}{counter}.jpg',face_s)
     counter += 1
-    if cv2.waitKey(100) == ord('q'):
+    if cv2.waitKey(1) == ord('q'):
         break
